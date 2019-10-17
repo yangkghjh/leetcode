@@ -1,7 +1,13 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"time"
+)
 
 func main() {
-	fmt.Println(romanToInt("MCMXCIV"))
+	start := time.Now()
+	fmt.Println(threeSum([]int{-1, 0, 1, 2, -1, -4}))
+	end := time.Now()
+	fmt.Println(end.Sub(start))
 }
