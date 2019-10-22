@@ -7,7 +7,7 @@ import (
 
 func main() {
 	start := time.Now()
-	fmt.Println(removeNthFromEnd(&ListNode{Val: 1, Next: &ListNode{Val: 2}}, 1))
+	fmt.Println(isValid("["))
 	end := time.Now()
 	fmt.Println(end.Sub(start))
 }
