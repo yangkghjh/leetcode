@@ -7,9 +7,7 @@ import (
 
 func main() {
 	start := time.Now()
-	x := []int{}
-	fmt.Println(removeDuplicates(x))
-	fmt.Println(x)
+	fmt.Println(divide(1, 2))
 	end := time.Now()
 	fmt.Println(end.Sub(start))
 }
