@@ -6,7 +6,7 @@ import (
 	. "github.com/smartystreets/goconvey/convey"
 )
 
-func TestPermute(t *testing.T) {
+func TestGroupAnagrams(t *testing.T) {
 	Convey("[49] 字母异位词分组", t, func() {
 		args := [][]string{
 			[]string{},
