@@ -40,7 +40,7 @@ func TestMerge(t *testing.T) {
 		}
 
 		for i, arg := range args {
-			So(merge(arg), ShouldResemble, expected[i])
+			So(mergeInterval(arg), ShouldResemble, expected[i])
 		}
 	})
 }

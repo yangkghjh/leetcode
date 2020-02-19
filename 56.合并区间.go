@@ -9,7 +9,7 @@ import "sort"
  */
 
 // @lc code=start
-func merge(intervals [][]int) [][]int {
+func mergeInterval(intervals [][]int) [][]int {
 	if len(intervals) <= 1 {
 		return intervals
 	}
