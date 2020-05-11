@@ -1,6 +1,6 @@
 module github.com/yangkghjh/leetcode
 
-go 1.12
+go 1.13
 
 require (
 	github.com/cheekybits/genny v1.0.0
