@@ -8,10 +8,10 @@ package leetcode
 
 // @lc code=start
 type MinStack struct {
-	stack []Node
+	stack []MinStackNode
 }
 
-type Node struct {
+type MinStackNode struct {
 	data int
 	min  int
 }
@@ -19,14 +19,14 @@ type Node struct {
 /** initialize your data structure here. */
 func MinStackConstructor() MinStack {
 	m := MinStack{
-		stack: []Node{},
+		stack: []MinStackNode{},
 	}
 
 	return m
 }
 
 func (this *MinStack) Push(x int) {
-	n := Node{
+	n := MinStackNode{
 		data: x,
 		min:  x,
 	}
