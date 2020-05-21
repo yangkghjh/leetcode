@@ -8,7 +8,7 @@ import (
 
 func TestMyCircularQueue(t *testing.T) {
 	Convey("[622] 设计循环队列", t, func() {
-		obj := Constructor(3)
+		obj := NewMyCircularQueue(3)
 		So(obj.DeQueue(), ShouldEqual, false)
 		So(obj.Len(), ShouldEqual, 0)
 		So(obj.EnQueue(1), ShouldEqual, true)
@@ -26,7 +26,7 @@ func TestMyCircularQueue(t *testing.T) {
 		So(obj.Len(), ShouldEqual, 2)
 		So(obj.EnQueue(4), ShouldBeTrue)
 
-		obj = Constructor(4)
+		obj = NewMyCircularQueue(4)
 		obj.EnQueue(3)
 		obj.Front()
 		obj.IsFull()

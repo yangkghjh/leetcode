@@ -17,7 +17,7 @@ type MyCircularQueue struct {
 const null = -1
 
 /** Initialize your data structure here. Set the size of the queue to be k. */
-func Constructor(k int) MyCircularQueue {
+func NewMyCircularQueue(k int) MyCircularQueue {
 	return MyCircularQueue{
 		head:   null,
 		tail:   null,
