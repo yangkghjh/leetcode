@@ -39,9 +39,3 @@ func removeNthFromEnd(head *ListNode, n int) *ListNode {
 }
 
 // @lc code=end
-
-// ListNode 链表
-type ListNode struct {
-	Val  int
-	Next *ListNode
-}
