@@ -17,7 +17,7 @@ type LinkedListNode struct {
 }
 
 /** Initialize your data structure here. */
-func Constructor() MyLinkedList {
+func NewMyLinkedList() MyLinkedList {
 	return MyLinkedList{}
 }
 
