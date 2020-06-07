@@ -9,7 +9,7 @@ package leetcode
  */
 
 // @lc code=start
-func search(nums []int, target int) int {
+func searchRotateSortedArray(nums []int, target int) int {
 	if len(nums) == 0 {
 		return -1
 	}
