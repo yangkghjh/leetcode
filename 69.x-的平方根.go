@@ -7,38 +7,26 @@ package leetcode
  */
 
 // @lc code=start
-func mySqrtBinarySearch(x int) int {
+func mySqrt(x int) int {
 	// func mySqrt(x int) int {
 	// 二分法
-	m0 := 0
-	m1 := x
-	m := 0
-	for {
-		m = (m0 + m1) / 2
-		if m*m <= x {
-			if m*m == x {
-				return m
-			}
-			if (m+1)*(m+1) >= x {
-				if (m+1)*(m+1) == x {
-					return m + 1
-				}
-				return m
-			}
-
-			m0 = m
+	left, right := 0, x
+	ans := -1
+	for right >= left {
+		mid := left + (right-left)/2
+		if mid*mid <= x {
+			ans = mid
+			left = mid + 1
 		} else {
-			if (m-1)*(m-1) <= x {
-				return m - 1
-			}
-
-			m1 = m
+			right = mid - 1
 		}
 	}
+
+	return ans
 }
 
-// func mySqrtNewtonMethod(x int) int {
-func mySqrt(x int) int {
+func mySqrtNewtonMethod(x int) int {
+	// func mySqrt(x int) int {
 	// 牛顿法
 	if x == 0 {
 		return 0
