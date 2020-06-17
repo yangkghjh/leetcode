@@ -7,8 +7,38 @@ package leetcode
  */
 
 // @lc code=start
+// 方法二中心扩散法
 func longestPalindrome(s string) string {
-	// 动态规划
+	if s == "" {
+		return ""
+	}
+
+	n := len(s)
+	start, end := 0, 0
+	for i := 0; i < n; i++ {
+		start1, end1 := expendAroundCenter(s, i, i)
+		start2, end2 := expendAroundCenter(s, i, i+1)
+
+		if end1-start1 > end-start {
+			start, end = start1, end1
+		}
+		if end2-start2 > end-start {
+			start, end = start2, end2
+		}
+	}
+
+	return s[start : end+1]
+}
+
+func expendAroundCenter(s string, start, end int) (int, int) {
+	for ; start >= 0 && end < len(s) && s[start] == s[end]; start, end = start-1, end+1 {
+	}
+
+	return start + 1, end - 1
+}
+
+// 方法一 动态规划
+func longestPalindromeDynamicProgramming(s string) string {
 	ans := ""
 	n := len(s)
 	// 结构数组 dynamic programming
@@ -40,5 +70,8 @@ func longestPalindrome(s string) string {
 
 	return ans
 }
+
+// 时间复杂度 O(n2)
+// 空间复杂度 O(n2)
 
 // @lc code=end
