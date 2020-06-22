@@ -12,10 +12,8 @@ func getRow(rowIndex int) []int {
 	ans[0] = 1
 	for i := 1; i <= rowIndex; i++ {
 		ans[i] = 1
-		left, right := ans[0], ans[1]
-		for j := 1; j < i; j++ {
-			ans[j] = left + right
-			left, right = right, ans[j+1]
+		for j := i; j > 1; j-- {
+			ans[j-1] = ans[j-2] + ans[j-1]
 		}
 	}
 
