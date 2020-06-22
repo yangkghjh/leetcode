@@ -7,12 +7,12 @@ import (
 
 func Test_cloneGraph(t *testing.T) {
 	type args struct {
-		node *Node
+		node *CloneGraphNode
 	}
 	tests := []struct {
 		name string
 		args args
-		want *Node
+		want *CloneGraphNode
 	}{
 		{
 			name: "1",

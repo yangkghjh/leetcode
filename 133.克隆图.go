@@ -1,8 +1,8 @@
 package leetcode
 
-type Node struct {
+type CloneGraphNode struct {
 	Val       int
-	Neighbors []*Node
+	Neighbors []*CloneGraphNode
 }
 
 /*
@@ -20,14 +20,14 @@ type Node struct {
  * }
  */
 
-func cloneGraph(node *Node) *Node {
+func cloneGraph(node *CloneGraphNode) *CloneGraphNode {
 	if node == nil {
 		return nil
 	}
 
-	hash := map[int]*Node{}
-	res := &Node{
-		Neighbors: []*Node{},
+	hash := map[int]*CloneGraphNode{}
+	res := &CloneGraphNode{
+		Neighbors: []*CloneGraphNode{},
 	}
 
 	cloneGraphDFS(node, res, hash)
@@ -35,13 +35,13 @@ func cloneGraph(node *Node) *Node {
 	return res.Neighbors[0]
 }
 
-func cloneGraphDFS(node, target *Node, hash map[int]*Node) {
+func cloneGraphDFS(node, target *CloneGraphNode, hash map[int]*CloneGraphNode) {
 	n, ok := hash[node.Val]
 
 	if !ok {
-		n = &Node{
+		n = &CloneGraphNode{
 			Val:       node.Val,
-			Neighbors: []*Node{},
+			Neighbors: []*CloneGraphNode{},
 		}
 		hash[node.Val] = n
 	}
