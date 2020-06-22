@@ -12,7 +12,7 @@ import (
  */
 
 // @lc code=start
-func reverseWords(s string) string {
+func reverseWords1(s string) string {
 	strs := strings.Split(s, " ")
 
 	ans := bytes.NewBuffer([]byte{})
