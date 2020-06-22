@@ -44,6 +44,14 @@ func Test_removeElement(t *testing.T) {
 			},
 			want: 2,
 		},
+		{
+			name: "[1],1",
+			args: args{
+				nums: []int{1},
+				val:  1,
+			},
+			want: 0,
+		},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
