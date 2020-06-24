@@ -8,7 +8,7 @@ import (
 
 func TestMyHashSet(t *testing.T) {
 	Convey("[705] 设计哈希集合", t, func() {
-		hashSet := Constructor()
+		hashSet := NewMyHashSet()
 		hashSet.Add(1)
 		hashSet.Add(2)
 		So(hashSet.Contains(1), ShouldBeTrue)  // 返回 true

@@ -12,7 +12,8 @@ type MyHashSet struct {
 }
 
 /** Initialize your data structure here. */
-func Constructor() MyHashSet {
+func NewMyHashSet() MyHashSet {
+	// func Constructor() MyHashSet {
 	return MyHashSet{
 		table: make([]byte, 125001),
 	}
