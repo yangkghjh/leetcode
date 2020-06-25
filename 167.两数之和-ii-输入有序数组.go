@@ -7,7 +7,7 @@ package leetcode
  */
 
 // @lc code=start
-func twoSum(numbers []int, target int) []int {
+func twoSum2(numbers []int, target int) []int {
 	index1, index2 := 0, len(numbers)-1
 
 	for {
