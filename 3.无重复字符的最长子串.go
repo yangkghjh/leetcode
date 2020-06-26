@@ -42,4 +42,7 @@ func lengthOfLongestSubstring(s string) int {
 	return max
 }
 
+// 时间复杂度： O(N)
+// 空间复杂度： O(N)
+
 // @lc code=end
