@@ -12,7 +12,7 @@ func findDuplicate(nums []int) int {
 	n := len(nums)
 	l, r := 1, n-1
 	ans := -1
-	for l < r {
+	for l <= r {
 		mid := (l + r) / 2
 
 		cnt := 0
