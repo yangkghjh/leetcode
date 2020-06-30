@@ -1,11 +1,5 @@
 package leetcode
 
-type TreeNode struct {
-	Val   int
-	Left  *TreeNode
-	Right *TreeNode
-}
-
 /*
  * @lc app=leetcode.cn id=94 lang=golang
  *
