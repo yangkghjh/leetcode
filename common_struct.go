@@ -32,32 +32,64 @@ func NewTreeNode(val int) *TreeNode {
 }
 
 func NewBinaryTree(values ...int) *TreeNode {
-	root := &TreeNode{Val: values[0]}
-	values = values[1:]
-
-	var Q []*TreeNode
-	Q = append(Q, root)
-	for len(Q) > 0 && len(values) > 0 {
-		// pop  tree node
-		n := 1
-		p := Q[0]
-		Q = Q[1:]
-
-		if values[0] != -1 {
-			p.Left = &TreeNode{Val: values[0]}
-			Q = append(Q, p.Left)
-		}
-		// 为空的情况可以省略，模式指针就是nil
-
-		// 第二个元素为右子树
-		if len(values) >= 2 && values[1] != -1 {
-			p.Right = &TreeNode{Val: values[1]}
-			Q = append(Q, p.Right)
-			n++
-		}
-
-		// pop出两个元素
-		values = values[n:]
+	if len(values) == 0 {
+		return nil
 	}
+
+	root := &TreeNode{Val: values[0]}
+	stack := []*TreeNode{root}
+
+	dep := 1
+	i := 1
+	var left, right *TreeNode
+
+	for k := 0; k < dep; {
+		j := k / 2
+		if k%2 == 1 {
+			j++
+		}
+		// fmt.Println(dep, k, j)
+
+		if stack[j] != nil {
+
+			left = newTreeNode(values[i])
+			if i+1 < len(values) {
+				right = newTreeNode(values[i+1])
+			} else {
+				right = nil
+			}
+
+			stack[j].Left = left
+			stack[j].Right = right
+			stack[j] = left
+			stack = append(stack, right)
+
+			i += 2
+			if i >= len(values) {
+				break
+			}
+		} else {
+			stack[j] = nil
+			stack = append(stack, nil)
+		}
+
+		if k+1 == dep {
+			k = 0
+			dep *= 2
+		} else {
+			k++
+		}
+	}
+
 	return root
+}
+
+func newTreeNode(value int) *TreeNode {
+	if value != -1 {
+		return &TreeNode{
+			Val: value,
+		}
+	}
+
+	return nil
 }
