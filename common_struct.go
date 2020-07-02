@@ -44,6 +44,9 @@ func NewBinaryTree(values ...int) *TreeNode {
 	var left, right *TreeNode
 
 	for k := 0; k < dep; {
+		if len(values) <= i {
+			break
+		}
 		j := k / 2
 		if k%2 == 1 {
 			j++
@@ -51,7 +54,6 @@ func NewBinaryTree(values ...int) *TreeNode {
 		// fmt.Println(dep, k, j)
 
 		if stack[j] != nil {
-
 			left = newTreeNode(values[i])
 			if i+1 < len(values) {
 				right = newTreeNode(values[i+1])
@@ -92,4 +94,16 @@ func newTreeNode(value int) *TreeNode {
 	}
 
 	return nil
+}
+
+func TreeNodeDeepEqual(m, n *TreeNode) bool {
+	if m == n {
+		return true
+	}
+
+	if m == nil || n == nil || m.Val != n.Val {
+		return false
+	}
+
+	return TreeNodeDeepEqual(m.Left, n.Left) && TreeNodeDeepEqual(m.Right, n.Right)
 }
