@@ -15,7 +15,7 @@ package leetcode
  *     Right *TreeNode
  * }
  */
-func buildTree(inorder []int, postorder []int) *TreeNode {
+func buildTreeInorderPostorder(inorder []int, postorder []int) *TreeNode {
 	l := len(postorder) - 1
 	if l < 0 {
 		return nil
@@ -25,8 +25,8 @@ func buildTree(inorder []int, postorder []int) *TreeNode {
 		if inorder[k] == postorder[l] {
 			return &TreeNode{
 				Val:   postorder[l],
-				Left:  buildTree(inorder[:k], postorder[:k]),
-				Right: buildTree(inorder[k+1:], postorder[k:l]),
+				Left:  buildTreeInorderPostorder(inorder[:k], postorder[:k]),
+				Right: buildTreeInorderPostorder(inorder[k+1:], postorder[k:l]),
 			}
 		}
 	}
