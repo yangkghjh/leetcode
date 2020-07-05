@@ -37,50 +37,29 @@ func NewBinaryTree(values ...int) *TreeNode {
 	}
 
 	root := &TreeNode{Val: values[0]}
-	stack := []*TreeNode{root}
+	list := []*TreeNode{root}
+	ans := []*TreeNode{}
 
-	dep := 1
 	i := 1
-	var left, right *TreeNode
 
-	for k := 0; k < dep; {
-		if len(values) <= i {
-			break
-		}
-		j := k / 2
-		if k%2 == 1 {
-			j++
-		}
-		// fmt.Println(dep, k, j)
-
-		if stack[j] != nil {
-			left = newTreeNode(values[i])
-			if i+1 < len(values) {
-				right = newTreeNode(values[i+1])
-			} else {
-				right = nil
-			}
-
-			stack[j].Left = left
-			stack[j].Right = right
-			stack[j] = left
-			stack = append(stack, right)
-
-			i += 2
+	for len(list) == 0 || i < len(values) {
+		for _, l := range list {
 			if i >= len(values) {
 				break
 			}
-		} else {
-			stack[j] = nil
-			stack = append(stack, nil)
-		}
+			if l != nil {
+				l.Left = newTreeNode(values[i])
+				if i+1 < len(values) {
+					l.Right = newTreeNode(values[i+1])
+				}
 
-		if k+1 == dep {
-			k = 0
-			dep *= 2
-		} else {
-			k++
+				ans = append(ans, l.Left, l.Right)
+
+				i += 2
+			}
 		}
+		list = ans
+		ans = []*TreeNode{}
 	}
 
 	return root

@@ -23,6 +23,14 @@ func TestNewBinaryTree(t *testing.T) {
 
 		So(root.Right.Left.Val, ShouldEqual, 13)
 		So(root.Right.Right.Val, ShouldEqual, 4)
+
+		root = NewBinaryTree(3, 5, 1, 6, 2, 0, 8, -1, -1, 7, 4)
+		So(root.Left.Left.Val, ShouldEqual, 6)
+		So(root.Left.Right.Val, ShouldEqual, 2)
+		So(root.Left.Left.Left, ShouldEqual, nil)
+		So(root.Left.Left.Right, ShouldEqual, nil)
+		So(root.Left.Right.Val, ShouldEqual, 2)
+		So(root.Left.Right.Left.Val, ShouldEqual, 7)
 	})
 }
 
