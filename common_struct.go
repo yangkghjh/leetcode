@@ -1,5 +1,7 @@
 package leetcode
 
+import "math"
+
 // ListNode 链表
 type ListNode struct {
 	Val  int
@@ -30,6 +32,8 @@ func NewTreeNode(val int) *TreeNode {
 		Val: val,
 	}
 }
+
+const null = math.MinInt64
 
 func NewBinaryTree(values ...int) *TreeNode {
 	if len(values) == 0 {
@@ -63,6 +67,37 @@ func NewBinaryTree(values ...int) *TreeNode {
 	}
 
 	return root
+}
+
+func SerializeBinaryTree(node *TreeNode) []int {
+	list := []*TreeNode{node}
+	next := []*TreeNode{}
+
+	ans := []int{}
+
+	for len(list) != 0 {
+		for _, n := range list {
+			if n != nil {
+				ans = append(ans, n.Val)
+				next = append(next, n.Left, n.Right)
+			} else {
+				ans = append(ans, -1)
+			}
+		}
+
+		list = next
+		next = []*TreeNode{}
+	}
+
+	for i := len(ans) - 1; i >= 0; i-- {
+		if ans[i] == -1 {
+			ans = ans[:i]
+		} else {
+			break
+		}
+	}
+
+	return ans
 }
 
 func newTreeNode(value int) *TreeNode {

@@ -14,8 +14,6 @@ type MyCircularQueue struct {
 	data   []int
 }
 
-const null = -1
-
 /** Initialize your data structure here. Set the size of the queue to be k. */
 func NewMyCircularQueue(k int) MyCircularQueue {
 	return MyCircularQueue{

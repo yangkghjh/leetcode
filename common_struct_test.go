@@ -1,6 +1,7 @@
 package leetcode
 
 import (
+	"reflect"
 	"testing"
 
 	. "github.com/smartystreets/goconvey/convey"
@@ -97,6 +98,32 @@ func TestTreeNodeDeepEqual(t *testing.T) {
 		t.Run(tt.name, func(t *testing.T) {
 			if got := TreeNodeDeepEqual(tt.args.m, tt.args.n); got != tt.want {
 				t.Errorf("TreeNodeDeepEqual() = %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
+
+func TestSerializeBinaryTree(t *testing.T) {
+	type args struct {
+		node *TreeNode
+	}
+	tests := []struct {
+		name string
+		args args
+		want []int
+	}{
+		{
+			name: "1",
+			args: args{
+				node: NewBinaryTree(1, 2, 3),
+			},
+			want: []int{1, 2, 3},
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			if got := SerializeBinaryTree(tt.args.node); !reflect.DeepEqual(got, tt.want) {
+				t.Errorf("SerializeBinaryTree() = %v, want %v", got, tt.want)
 			}
 		})
 	}
