@@ -16,7 +16,7 @@ package leetcode
  * }
  */
 // 方法二：递归找到父节点
-func lowestCommonAncestor(root, p, q *TreeNode) *TreeNode {
+func lowestCommonAncestorNormal(root, p, q *TreeNode) *TreeNode {
 	if root == nil {
 		return nil
 	}
@@ -25,8 +25,8 @@ func lowestCommonAncestor(root, p, q *TreeNode) *TreeNode {
 		return root
 	}
 
-	left := lowestCommonAncestor(root.Left, p, q)
-	right := lowestCommonAncestor(root.Right, p, q)
+	left := lowestCommonAncestorNormal(root.Left, p, q)
+	right := lowestCommonAncestorNormal(root.Right, p, q)
 
 	if left != nil && right != nil {
 		return root

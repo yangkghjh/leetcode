@@ -5,7 +5,7 @@ import (
 	"testing"
 )
 
-func Test_lowestCommonAncestor(t *testing.T) {
+func Test_lowestCommonAncestorNormal(t *testing.T) {
 	type args struct {
 		root *TreeNode
 		p    *TreeNode
@@ -41,8 +41,8 @@ func Test_lowestCommonAncestor(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			if got := lowestCommonAncestor(tt.args.root, tt.args.p, tt.args.q); !reflect.DeepEqual(got, tt.want) {
-				t.Errorf("lowestCommonAncestor() = %v, want %v", got, tt.want)
+			if got := lowestCommonAncestorNormal(tt.args.root, tt.args.p, tt.args.q); !reflect.DeepEqual(got, tt.want) {
+				t.Errorf("lowestCommonAncestorNormal() = %v, want %v", got, tt.want)
 			}
 		})
 	}
