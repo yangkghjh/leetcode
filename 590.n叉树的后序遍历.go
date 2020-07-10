@@ -22,20 +22,27 @@ func postorder(root *Node) []int {
 	for len(stack) > 0 {
 		l := len(stack) - 1
 		node := stack[l]
-		stack = stack[:l]
 
 		if node == nil {
+			stack = stack[:l]
 			continue
 		}
 
-		ans = append(ans, node.Val)
-
-		for i := len(node.Children) - 1; i >= 0; i-- {
-			stack = append(stack, node.Children[i])
+		if len(node.Children) == 0 {
+			ans = append(ans, node.Val)
+			stack = stack[:l]
+		} else {
+			for i := len(node.Children) - 1; i >= 0; i-- {
+				stack = append(stack, node.Children[i])
+			}
+			node.Children = nil
 		}
 	}
 
 	return ans
 }
+
+// 时间复杂度： O(N)
+// 空间复杂度： O(N)
 
 // @lc code=end
