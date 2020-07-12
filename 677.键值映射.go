@@ -14,7 +14,7 @@ type MapSum struct {
 }
 
 /** Initialize your data structure here. */
-func Constructor() MapSum {
+func NewMapSum() MapSum {
 	return MapSum{
 		Children: make(map[byte]*MapSum),
 		Map:      make(map[string]int),
