@@ -1,7 +1,6 @@
 package leetcode
 
 import (
-	"sort"
 	"strings"
 )
 
@@ -12,69 +11,66 @@ import (
  */
 
 // @lc code=start
-func replaceWords(dict []string, sentence string) string {
-	sort.Slice(dict, func(i, j int) bool {
-		return len(dict[i]) < len(dict[j])
-	})
-
-	words := strings.Split(sentence, " ")
-	for i := 0; i < len(words); i++ {
-		for j := 0; j < len(dict); j++ {
-			if strings.HasPrefix(words[i], dict[j]) {
-				words[i] = dict[j]
-				break
-			}
-		}
-	}
-
-	return strings.Join(words, " ")
-}
-
 // func replaceWords(dict []string, sentence string) string {
-// 	trie := &ReplaceWordsTrie{
-// 		Children: map[byte]*ReplaceWordsTrie{},
-// 	}
-
-// 	for _, prefix := range dict {
-// 		trie.Insert(prefix)
-// 	}
+// 	sort.Slice(dict, func(i, j int) bool {
+// 		return len(dict[i]) < len(dict[j])
+// 	})
 
 // 	words := strings.Split(sentence, " ")
-// 	ans := ""
-
-// 	for _, word := range words {
-// 		prefix := trie.Search(word)
-
-// 		if prefix == "" {
-// 			prefix = word
+// 	for i := 0; i < len(words); i++ {
+// 		for j := 0; j < len(dict); j++ {
+// 			if strings.HasPrefix(words[i], dict[j]) {
+// 				words[i] = dict[j]
+// 				break
+// 			}
 // 		}
-
-// 		ans = ans + prefix + " "
 // 	}
 
-// 	if len(ans) == 0 {
-// 		return ans
-// 	}
-
-// 	return ans[:len(ans)-1]
+// 	return strings.Join(words, " ")
 // }
 
+func replaceWords(dict []string, sentence string) string {
+	trie := new(ReplaceWordsTrie)
+
+	for _, prefix := range dict {
+		trie.Insert(prefix)
+	}
+
+	words := strings.Split(sentence, " ")
+	ans := ""
+
+	for _, word := range words {
+		prefix := trie.Search(word)
+
+		if prefix == "" {
+			prefix = word
+		}
+
+		ans = ans + prefix + " "
+	}
+
+	if len(ans) == 0 {
+		return ans
+	}
+
+	return ans[:len(ans)-1]
+}
+
 type ReplaceWordsTrie struct {
-	Children map[byte]*ReplaceWordsTrie
 	Finish   bool
+	Children [26]*ReplaceWordsTrie
 }
 
 func (r *ReplaceWordsTrie) Insert(prefix string) {
 	node := r
 
 	for _, l := range []byte(prefix) {
-		n, ok := node.Children[l]
+		x := int(l - 'a')
+		n := node.Children[x]
 
-		if !ok {
-			n = &ReplaceWordsTrie{
-				Children: map[byte]*ReplaceWordsTrie{},
-			}
-			node.Children[l] = n
+		if n == nil {
+			n = new(ReplaceWordsTrie)
+			node.Children[x] = n
 		}
 
 		node = n
@@ -87,9 +83,10 @@ func (r *ReplaceWordsTrie) Search(word string) string {
 	node := r
 	w := []byte(word)
 	for i := range w {
-		n, ok := node.Children[w[i]]
+		x := int(w[i] - 'a')
+		n := node.Children[x]
 
-		if !ok {
+		if n == nil {
 			return ""
 		}
 
