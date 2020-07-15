@@ -7,7 +7,28 @@ package leetcode
  */
 
 // @lc code=start
+// 递归方式实现
 func getRow(rowIndex int) []int {
+	if rowIndex == 0 {
+		return []int{1}
+	}
+
+	row := make([]int, rowIndex+1)
+	row[0] = 1
+	row[rowIndex] = 1
+	prev := getRow(rowIndex - 1)
+
+	for i := 1; i < rowIndex; i++ {
+		row[i] = prev[i-1] + prev[i]
+	}
+
+	return row
+}
+
+// 时间复杂度： O(N2)
+// 空间复杂度： O(N)
+
+func getRowCommon(rowIndex int) []int {
 	ans := make([]int, rowIndex+1)
 	ans[0] = 1
 	for i := 1; i <= rowIndex; i++ {
