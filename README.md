@@ -4,3 +4,11 @@
 
 - [初级算法](https://leetcode-cn.com/explore/featured/card/top-interview-questions-easy/)
 - [队列 & 栈](https://leetcode-cn.com/explore/learn/card/queue-stack/)
+- [数组和字符串](https://leetcode-cn.com/leetbook/detail/array-and-string/)
+- [二叉树](https://leetcode-cn.com/leetbook/detail/data-structure-binary-tree/)
+- [链表](https://leetcode-cn.com/leetbook/detail/linked-list/)
+- [哈希表](https://leetcode-cn.com/leetbook/detail/hash-table/)
+- [二叉搜索树](https://leetcode-cn.com/leetbook/detail/introduction-to-data-structure-binary-search-tree/)
+- [前缀树](https://leetcode-cn.com/leetbook/detail/trie/)
+- [N 叉树](https://leetcode-cn.com/leetbook/detail/n-ary-tree/)
+- [剑指 Offer](https://leetcode-cn.com/problemset/lcof/)
