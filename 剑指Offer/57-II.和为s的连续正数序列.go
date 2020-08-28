@@ -13,7 +13,7 @@ func findContinuousSequence(target int) [][]int {
 	for start < end && end <= target/2+1 {
 		// fmt.Println(start, end)
 		if sum == target {
-			ans = append(ans, list(start, end))
+			ans = append(ans, getList(start, end))
 			end++
 			sum += end
 		} else if sum < target {
@@ -28,7 +28,7 @@ func findContinuousSequence(target int) [][]int {
 	return ans
 }
 
-func list(start, end int) []int {
+func getList(start, end int) []int {
 	l := end - start + 1
 	ans := make([]int, l)
 
