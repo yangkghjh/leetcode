@@ -5,7 +5,7 @@ import (
 	"testing"
 )
 
-func Test_levelOrder2(t *testing.T) {
+func Test_levelOrder3(t *testing.T) {
 	type args struct {
 		root *TreeNode
 	}
@@ -21,15 +21,15 @@ func Test_levelOrder2(t *testing.T) {
 			},
 			want: [][]int{
 				[]int{3},
-				[]int{9, 20},
+				[]int{20, 9},
 				[]int{15, 7},
 			},
 		},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			if got := levelOrder2(tt.args.root); !reflect.DeepEqual(got, tt.want) {
-				t.Errorf("levelOrder() = %v, want %v", got, tt.want)
+			if got := levelOrder3(tt.args.root); !reflect.DeepEqual(got, tt.want) {
+				t.Errorf("levelOrder3() = %v, want %v", got, tt.want)
 			}
 		})
 	}
