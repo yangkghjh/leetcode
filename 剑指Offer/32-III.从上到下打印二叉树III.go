@@ -14,19 +14,24 @@ func levelOrder3(root *TreeNode) [][]int {
 		next := []*TreeNode{}
 		vals := []int{}
 
-		i := 0
-		if dir == -1 {
-			i = len(stack) - 1
-		}
-		for ; i < len(stack) && i >= 0; i += dir {
+		for i := len(stack) - 1; i >= 0; i-- {
 			node := stack[i]
 			if node != nil {
 				vals = append(vals, node.Val)
-				if node.Left != nil {
-					next = append(next, node.Left)
-				}
-				if node.Right != nil {
-					next = append(next, node.Right)
+				if dir == 1 {
+					if node.Left != nil {
+						next = append(next, node.Left)
+					}
+					if node.Right != nil {
+						next = append(next, node.Right)
+					}
+				} else {
+					if node.Right != nil {
+						next = append(next, node.Right)
+					}
+					if node.Left != nil {
+						next = append(next, node.Left)
+					}
 				}
 			}
 		}
@@ -38,3 +43,27 @@ func levelOrder3(root *TreeNode) [][]int {
 
 	return ans
 }
+
+// next := []*TreeNode{}
+// vals := []int{}
+
+// for i := 0; i < len(stack); i++ {
+// 	node := stack[i]
+// 	if node != nil {
+// 		if dir == 1 {
+// 			vals = append(vals, node.Val)
+// 		} else {
+// 			vals = append([]int{node.Val}, vals...)
+// 		}
+// 		if node.Left != nil {
+// 			next = append(next, node.Left)
+// 		}
+// 		if node.Right != nil {
+// 			next = append(next, node.Right)
+// 		}
+// 	}
+// }
+
+// stack = next
+// ans = append(ans, vals)
+// dir = -dir
