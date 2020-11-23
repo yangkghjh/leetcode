@@ -1,9 +1,5 @@
 package offer
 
-import (
-	"fmt"
-)
-
 func findNthDigit(n int) int {
 	// 0 1
 	// 1-9 9
@@ -21,7 +17,6 @@ func findNthDigit(n int) int {
 	num := (n-1)/l + k/9
 	pos := (n - 1) % l
 
-	fmt.Println(n, k, l, pos, num)
 	for pos < l-1 {
 		num /= 10
 		pos++
