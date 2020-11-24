@@ -12,3 +12,8 @@
 - [前缀树](https://leetcode-cn.com/leetbook/detail/trie/)
 - [N 叉树](https://leetcode-cn.com/leetbook/detail/n-ary-tree/)
 - [剑指 Offer](https://leetcode-cn.com/problemset/lcof/)
+
+
+## 使用过的教程
+
+- [《数据密集型应用系统设计》](https://vonng.gitbooks.io/ddia-cn/content/)
