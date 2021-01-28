@@ -14,6 +14,6 @@
 - [剑指 Offer](https://leetcode-cn.com/problemset/lcof/)
 
 
-## 使用过的教程
+## 相关教程
 
 - [《数据密集型应用系统设计》](https://vonng.gitbooks.io/ddia-cn/content/)
