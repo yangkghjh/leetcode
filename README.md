@@ -17,3 +17,5 @@
 ## 相关教程
 
 - [《数据密集型应用系统设计》](https://vonng.gitbooks.io/ddia-cn/content/)
+- [30 Days of Code](https://github.com/xeoneux/30-Days-of-Code)
+- [Bash 脚本教程](https://wangdoc.com/bash/index.html)
