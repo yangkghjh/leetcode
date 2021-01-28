@@ -8,6 +8,15 @@ int main() {
 
   scanf("%d", &i);
 
+  if (i < 1) {
+    return 0;
+  }
+
+  if (i > 9) {
+    printf("Greater than 9\n");
+    return 0;
+  }
+
   if (i == 1) {
     printf("one\n");
   } else if (i == 2) {
@@ -26,8 +35,6 @@ int main() {
     printf("eight\n");
   } else if (i == 9) {
     printf("nine\n");
-  } else if (i > 9) {
-    printf("Greater than 9\n");
   }
 
   return 0;

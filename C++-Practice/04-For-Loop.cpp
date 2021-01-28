@@ -10,6 +10,19 @@ int main() {
   scanf("%d", &end);
 
   for (int i = start; i <= end; i++) {
+    if (i < 1) {
+      continue;
+    }
+
+    if (i > 9) {
+      if (i % 2 == 0) {
+        printf("even\n");
+      } else {
+        printf("odd\n");
+      }
+      continue;
+    }
+
     if (i == 1) {
       printf("one\n");
     } else if (i == 2) {
@@ -28,12 +41,6 @@ int main() {
       printf("eight\n");
     } else if (i == 9) {
       printf("nine\n");
-    } else if (i > 9) {
-      if (i % 2 == 0) {
-        printf("even\n");
-      } else {
-        printf("odd\n");
-      }
     }
   }
 
